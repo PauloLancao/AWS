@@ -1,0 +1,24 @@
+{
+  "name": "register",
+  "version": "1.0.0",
+  "description": "Learning NodeJS",
+  "main": "app.js",
+  "author": "PauloLanção",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.917.0",
+    "crypto": "^1.0.1",
+    "dotenv": "^10.0.0",
+    "email-validator": "^2.0.4",
+    "password-rules": "^0.0.3",
+    "uuid": "^3.3.2"
+  },
+  "scripts": {
+    "test": "mocha tests/unit/",
+    "outdated": "npm outdated"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.2.1"
+  }
+}

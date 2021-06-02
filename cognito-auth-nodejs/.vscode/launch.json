@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "aws-sam",
+            "request": "direct-invoke",
+            "name": "auth-registration:RegisterFunction",
+            "invokeTarget": {
+                "target": "template",
+                "templatePath": "${workspaceFolder}/auth-registration/template.yaml",
+                "logicalId": "RegisterFunction"
+            },
+            "lambda": {
+                "payload": 
+                {"json": 
+                    {
+                    "email": "user@email.com", 
+                    "password": "abcABC@123"
+                    }
+                },
+                "environmentVariables": {}
+            }
+        }
+    ]
+}

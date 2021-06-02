@@ -1,0 +1,9 @@
+Resources:
+  Function:
+    Type: AWS::Serverless::Function
+    Properties:
+      Timeout: 300
+      MemorySize: 128
+      Handler: app.lambdaHandler
+      CodeUri: C:\Users\paulolancao\Desktop\Learning\aws\cognito-auth-nodejs-vs-code\auth-registration\.aws-sam\build\HelloWorldFunction
+      Runtime: nodejs14.x

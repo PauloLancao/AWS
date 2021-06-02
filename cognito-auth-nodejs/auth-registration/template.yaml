@@ -1,0 +1,39 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  register
+
+  Sample SAM Template for register
+  
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 3
+
+Resources:
+  RegisterFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: register/
+      Handler: app.lambdaHandler
+      Runtime: nodejs14.x
+      Events:
+        Register:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /register
+            Method: post
+
+Outputs:
+  # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
+  # Find out more about other implicit resources you can reference within SAM
+  # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
+  RegisterApi:
+    Description: "API Gateway endpoint URL for Prod stage for Register function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/register/"
+  RegisterFunction:
+    Description: "Register Lambda Function ARN"
+    Value: !GetAtt RegisterFunction.Arn
+  RegisterFunctionIamRole:
+    Description: "Implicit IAM Role created for Register function"
+    Value: !GetAtt RegisterFunctionRole.Arn
